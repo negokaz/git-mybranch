@@ -26,6 +26,12 @@ jobs:
       run: |
         yarn --frozen-lockfile
         echo "node_modules/.bin" >> $GITHUB_PATH
+    - name: Setup Git
+      run: |
+        git config --global user.email "github-actions@example.com"
+        git config --global user.name "GitHub Actions"
+        git config --global init.defaultBranch 'main'
+        git config --global push.default 'current'
     - name: Run test
       run: |
         bats --timing test
