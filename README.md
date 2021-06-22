@@ -1,5 +1,7 @@
 # git-mybranch
 
+[![CI](https://github.com/negokaz/git-mybranch/workflows/CI/badge.svg?branch=main)](https://github.com/negokaz/git-mybranch/actions?query=branch%3Amain+workflow%3ACI)
+
 A Git subcommand for operating your draft branch
 
 ![](./docs/images/overview.drawio.png)
