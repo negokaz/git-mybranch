@@ -1,0 +1,31 @@
+name: ci
+
+on: [push]
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  test:
+
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [windows-latest, macos-latest, ubuntu-latest]
+
+    timeout-minutes: 5
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+    - name: Install dependencies
+      run: |
+        yarn --frozen-lockfile
+        echo "node_modules/.bin" >> $GITHUB_PATH
+    - name: Run test
+      run: |
+        bats --timing test
